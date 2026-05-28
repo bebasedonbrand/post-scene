@@ -51,36 +51,25 @@
     /* 메인 로고 키움 */
     .nav-logo { height: 17px; width: auto; display: block; }
 
-    /* ─── HERO MASONRY ─── */
+    /* ─── HERO SINGLE ─── */
     .hero {
-      padding: 0 var(--pad);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 20px;
-      padding-top: 66px;
+      padding-top: 100px;
+      display: flex;
+      justify-content: center;
     }
 
-    .col-l { padding-top: 130px; }
-    .col-r { padding-top: 0; }
-
-    figure {
-      margin-bottom: 20px;
-      overflow: hidden;
+    .hero-img {
+      width: 320px;
       cursor: pointer;
     }
 
-    figure img {
+    .hero-img img {
       width: 100%;
+      height: auto;
       display: block;
-      height: var(--h, 400px);
-      transform: scale(1.01);
-      transition: transform 1s cubic-bezier(.16,1,.3,1);
-      object-fit: cover;
+      transition: opacity .4s;
     }
-    figure:hover img { transform: scale(1.06); }
-
-    figure.zoom img { transform: scale(1.22); }
-    figure.zoom:hover img { transform: scale(1.27); }
+    .hero-img:hover img { opacity: .88; }
 
     .prod-img.zoom img { transform: scale(1.22); }
     .prod:hover .prod-img.zoom img { transform: scale(1.27); }
@@ -205,47 +194,10 @@
     </nav>
   </header>
 
-  <!-- HERO MASONRY — 오밀조밀 다양한 크기 -->
+  <!-- HERO SINGLE -->
   <section class="hero">
-
-    <!-- LEFT: 큰→작은→큰 리듬 -->
-    <div class="col-l">
-
-      <figure style="--h:500px">
-        <img src="bebasedonbrand_Korean_Joseon_white_porcelain_moon_jar_placed__9a7ae016-691a-4e86-8c8c-6b57dfefc677_3%20(1).png" alt="">
-        <figcaption>vessel · celadon series</figcaption>
-      </figure>
-
-      <figure style="--h:360px">
-        <img src="0_0-1.png" alt="">
-        <figcaption>object · stone collection</figcaption>
-      </figure>
-
-      <figure style="--h:480px">
-        <img src="0_3-1.png" alt="">
-        <figcaption>incense · daily ritual</figcaption>
-      </figure>
-
-    </div>
-
-    <!-- RIGHT: 중간→큰→작은 리듬 -->
-    <div class="col-r">
-
-      <figure style="--h:420px">
-        <img src="0_0.png" alt="">
-        <figcaption>moon jar · no.1</figcaption>
-      </figure>
-
-      <figure style="--h:520px">
-        <img src="0_3.png" alt="">
-        <figcaption>low bowl · ceramic</figcaption>
-      </figure>
-
-      <figure class="zoom" style="--h:380px">
-        <img src="e5d91b94b79db021264a94f6f0bc26c398844e97f7805718975f59f1e686b91b.png" alt="">
-        <figcaption>object · no.6</figcaption>
-      </figure>
-
+    <div class="hero-img">
+      <img src="0_3-1.png" alt="incense">
     </div>
   </section>
 
