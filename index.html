@@ -72,12 +72,18 @@
     figure img {
       width: 100%;
       display: block;
-      height: var(--h, 400px); /* 각 figure에서 --h로 높이 지정 */
+      height: var(--h, 400px);
       transform: scale(1.08);
       transition: transform 1s cubic-bezier(.16,1,.3,1);
       object-fit: cover;
     }
     figure:hover img { transform: scale(1.13); }
+
+    figure.zoom img { transform: scale(1.22); }
+    figure.zoom:hover img { transform: scale(1.27); }
+
+    .prod-img.zoom img { transform: scale(1.22); }
+    .prod:hover .prod-img.zoom img { transform: scale(1.27); }
 
     figcaption {
       font-size: 10px;
@@ -211,13 +217,13 @@
       </figure>
 
       <figure style="--h:200px">
-        <img src="0_3-1.png" alt="">
-        <figcaption>incense · daily ritual</figcaption>
+        <img src="0_0-1.png" alt="">
+        <figcaption>object · stone collection</figcaption>
       </figure>
 
       <figure style="--h:450px">
-        <img src="0_0-1.png" alt="">
-        <figcaption>object · stone collection</figcaption>
+        <img src="0_3-1.png" alt="">
+        <figcaption>incense · daily ritual</figcaption>
       </figure>
 
     </div>
@@ -235,7 +241,7 @@
         <figcaption>low bowl · ceramic</figcaption>
       </figure>
 
-      <figure style="--h:235px">
+      <figure class="zoom" style="--h:235px">
         <img src="e5d91b94b79db021264a94f6f0bc26c398844e97f7805718975f59f1e686b91b.png" alt="">
         <figcaption>object · no.6</figcaption>
       </figure>
@@ -297,7 +303,7 @@
     </div>
     <div class="prod">
       <div class="prod-num">06.</div>
-      <div class="prod-img"><img src="e5d91b94b79db021264a94f6f0bc26c398844e97f7805718975f59f1e686b91b.png" alt=""></div>
+      <div class="prod-img zoom"><img src="e5d91b94b79db021264a94f6f0bc26c398844e97f7805718975f59f1e686b91b.png" alt=""></div>
       <div class="prod-meta">
         <div class="prod-name">Object No.6</div>
         <div class="prod-price">₩ 210,000</div>
