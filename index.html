@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Scene</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:    #E2DDD5;
+      --ink:   #1B1816;
+      --muted: #7B756F;
+      --line:  rgba(27,24,22,.10);
+      --pad:   52px;
+    }
+
+    html { font-size: 13px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', -apple-system, 'Helvetica Neue', sans-serif;
+      font-weight: 300;
+      letter-spacing: .025em;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    a:hover { opacity: .45; transition: opacity .2s; }
+
+    /* ─── NAV ─── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 99;
+      background: var(--bg);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 22px var(--pad);
+    }
+
+    .nav-l { display: flex; gap: 40px; }
+    .nav-c { display: flex; justify-content: center; }
+    .nav-r { display: flex; gap: 28px; justify-content: flex-end; }
+
+    header a { font-size: 12px; font-weight: 300; }
+
+    /* 메인 로고 키움 */
+    .nav-logo { height: 17px; width: auto; display: block; }
+
+    /* ─── HERO MASONRY ─── */
+    .hero {
+      padding: 0 var(--pad);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 20px;
+      padding-top: 66px;
+    }
+
+    .col-l { padding-top: 130px; }
+    .col-r { padding-top: 0; }
+
+    figure {
+      margin-bottom: 20px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    figure img {
+      width: 100%;
+      display: block;
+      height: var(--h, 400px); /* 각 figure에서 --h로 높이 지정 */
+      transform: scale(1.08);
+      transition: transform 1s cubic-bezier(.16,1,.3,1);
+      object-fit: cover;
+    }
+    figure:hover img { transform: scale(1.13); }
+
+    figcaption {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: .06em;
+      padding: 10px 0 4px;
+    }
+
+    /* ─── P.S. 심벌 브레이크 (중간) ─── */
+    .ps-break {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 0 90px;
+    }
+
+    .ps-mid {
+      width: 96px;
+      opacity: .7;
+    }
+
+    /* ─── DIVIDER ─── */
+    .rule {
+      margin: 0 var(--pad);
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+
+    .rule-label {
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── SHOP GRID ─── */
+    .shop {
+      padding: 36px var(--pad) 100px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 52px 20px;
+    }
+
+    .prod { cursor: pointer; }
+
+    .prod-num {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: .08em;
+      margin-bottom: 12px;
+    }
+
+    .prod-img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+    }
+
+    .prod-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transform: scale(1.08);
+      transition: transform 1s cubic-bezier(.16,1,.3,1);
+    }
+    .prod:hover .prod-img img { transform: scale(1.13); }
+
+    .prod-meta { margin-top: 14px; }
+    .prod-name { font-size: 12px; font-weight: 300; margin-bottom: 5px; }
+    .prod-price { font-size: 11px; color: var(--muted); }
+
+    /* ─── 하단 워드마크 ─── */
+    .wm-foot {
+      padding: 80px var(--pad) 60px;
+      overflow: hidden;
+    }
+
+    .wm-logo {
+      display: block;
+      width: 100%;
+      height: auto;
+      opacity: .92;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 24px var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .foot-tag {
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="nav-l">
+      <a href="#">shop</a>
+      <a href="#">archive</a>
+      <a href="#">review</a>
+    </nav>
+    <div class="nav-c">
+      <a href="#"><img src="logo.svg?v=2" class="nav-logo" alt="Post Scene"></a>
+    </div>
+    <nav class="nav-r">
+      <a href="#">login</a>
+      <a href="#">bag</a>
+    </nav>
+  </header>
+
+  <!-- HERO MASONRY — 오밀조밀 다양한 크기 -->
+  <section class="hero">
+
+    <!-- LEFT: 큰→작은→큰 리듬 -->
+    <div class="col-l">
+
+      <figure style="--h:575px">
+        <img src="bebasedonbrand_Korean_Joseon_white_porcelain_moon_jar_placed__9a7ae016-691a-4e86-8c8c-6b57dfefc677_3%20(1).png" alt="">
+        <figcaption>vessel · celadon series</figcaption>
+      </figure>
+
+      <figure style="--h:200px">
+        <img src="0_3-1.png" alt="">
+        <figcaption>incense · daily ritual</figcaption>
+      </figure>
+
+      <figure style="--h:450px">
+        <img src="0_0-1.png" alt="">
+        <figcaption>object · stone collection</figcaption>
+      </figure>
+
+    </div>
+
+    <!-- RIGHT: 중간→큰→작은 리듬 -->
+    <div class="col-r">
+
+      <figure style="--h:320px">
+        <img src="0_0.png" alt="">
+        <figcaption>moon jar · no.1</figcaption>
+      </figure>
+
+      <figure style="--h:555px">
+        <img src="0_3.png" alt="">
+        <figcaption>low bowl · ceramic</figcaption>
+      </figure>
+
+      <figure style="--h:235px">
+        <img src="e5d91b94b79db021264a94f6f0bc26c398844e97f7805718975f59f1e686b91b.png" alt="">
+        <figcaption>object · no.6</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- P.S. 심벌 브레이크 (워드마크 대신) -->
+  <div class="ps-break">
+    <img class="ps-mid" src="signature.svg" alt="p.s.">
+  </div>
+
+  <!-- NEW IN -->
+  <div class="rule">
+    <span class="rule-label">new in</span>
+    <span style="font-size:10px;color:var(--muted)">— 06</span>
+  </div>
+
+  <section class="shop">
+    <div class="prod">
+      <div class="prod-num">01.</div>
+      <div class="prod-img"><img src="0_0.png" alt=""></div>
+      <div class="prod-meta">
+        <div class="prod-name">Moon Jar No.1</div>
+        <div class="prod-price">₩ 148,000</div>
+      </div>
+    </div>
+    <div class="prod">
+      <div class="prod-num">02.</div>
+      <div class="prod-img"><img src="0_3.png" alt=""></div>
+      <div class="prod-meta">
+        <div class="prod-name">Low Bowl</div>
+        <div class="prod-price">₩ 96,000</div>
+      </div>
+    </div>
+    <div class="prod">
+      <div class="prod-num">03.</div>
+      <div class="prod-img"><img src="0_0-1.png" alt=""></div>
+      <div class="prod-meta">
+        <div class="prod-name">Stone Stool</div>
+        <div class="prod-price">₩ 380,000</div>
+      </div>
+    </div>
+    <div class="prod">
+      <div class="prod-num">04.</div>
+      <div class="prod-img"><img src="0_3-1.png" alt=""></div>
+      <div class="prod-meta">
+        <div class="prod-name">Incense Set</div>
+        <div class="prod-price">₩ 42,000</div>
+      </div>
+    </div>
+    <div class="prod">
+      <div class="prod-num">05.</div>
+      <div class="prod-img"><img src="bebasedonbrand_Korean_Joseon_white_porcelain_moon_jar_placed__9a7ae016-691a-4e86-8c8c-6b57dfefc677_3%20(1).png" alt=""></div>
+      <div class="prod-meta">
+        <div class="prod-name">Celadon Bowl</div>
+        <div class="prod-price">₩ 78,000</div>
+      </div>
+    </div>
+    <div class="prod">
+      <div class="prod-num">06.</div>
+      <div class="prod-img"><img src="e5d91b94b79db021264a94f6f0bc26c398844e97f7805718975f59f1e686b91b.png" alt=""></div>
+      <div class="prod-meta">
+        <div class="prod-name">Object No.6</div>
+        <div class="prod-price">₩ 210,000</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 하단 큰 워드마크 -->
+  <div class="wm-foot">
+    <img src="logo.svg?v=2" class="wm-logo" alt="Post Scene">
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="foot-tag">shop</span>
+    <span class="foot-tag">archive</span>
+  </footer>
+
+</body>
+</html>
