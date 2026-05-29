@@ -51,25 +51,96 @@
     /* 메인 로고 키움 */
     .nav-logo { height: 17px; width: auto; display: block; }
 
-    /* ─── HERO SINGLE ─── */
+    /* ─── HERO ─── */
     .hero {
-      padding-top: 100px;
-      display: flex;
-      justify-content: center;
+      padding: 100px var(--pad) 0;
     }
 
     .hero-img {
-      width: 320px;
-      cursor: pointer;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      position: relative;
     }
 
     .hero-img img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: opacity .4s;
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transform: scale(1.04);
+      transition: opacity .5s;
     }
-    .hero-img:hover img { opacity: .88; }
+
+    /* ─── HERO OVERLAY ─── */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 52px;
+      background: linear-gradient(to top, rgba(27,24,22,.42) 0%, transparent 58%);
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      opacity: .75;
+      font-weight: 300;
+    }
+
+    .hero-headline {
+      font-family: inherit;
+      font-size: clamp(22px, 3.2vw, 42px);
+      font-weight: 300;
+      letter-spacing: .04em;
+      line-height: 1.25;
+      margin-bottom: 36px;
+    }
+
+    .hero-cta {
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,.5);
+      padding: 13px 34px;
+      color: #fff;
+      transition: background .25s, border-color .25s;
+    }
+    .hero-cta:hover {
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.8);
+      opacity: 1;
+    }
+
+    /* ─── HERO META ─── */
+    .hero-meta {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px var(--pad) 0;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── TYPE STATEMENT ─── */
+    .type-statement {
+      padding: 90px var(--pad) 80px;
+      text-align: center;
+    }
+
+    .type-statement p {
+      font-size: clamp(17px, 2vw, 26px);
+      font-weight: 300;
+      line-height: 1.75;
+      letter-spacing: .015em;
+      color: var(--ink);
+    }
 
     .prod-img.zoom img { transform: scale(1.22); }
     .prod:hover .prod-img.zoom img { transform: scale(1.27); }
@@ -84,13 +155,13 @@
     /* ─── P.S. 심벌 브레이크 (중간) ─── */
     .ps-break {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
-      padding: 100px 0 90px;
+      padding: 80px var(--pad) 70px;
     }
 
     .ps-mid {
-      width: 96px;
+      width: 64px;
       opacity: .7;
     }
 
@@ -194,12 +265,28 @@
     </nav>
   </header>
 
-  <!-- HERO SINGLE -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-img">
-      <img src="0_3-1.png" alt="incense">
+      <img src="a-01.png" alt="">
+      <div class="hero-overlay">
+        <p class="hero-eyebrow">Curated from Korean Living</p>
+        <h1 class="hero-headline">Past, Still Living.</h1>
+        <a class="hero-cta" href="#">View Collection</a>
+      </div>
     </div>
   </section>
+
+  <!-- HERO META -->
+  <div class="hero-meta">
+    <span>Collection No.1</span>
+    <span>Seoul, 2026</span>
+  </div>
+
+  <!-- TYPE STATEMENT -->
+  <div class="type-statement">
+    <p>Each object holds a scene.<br>Each scene, a way of living.</p>
+  </div>
 
   <!-- P.S. 심벌 브레이크 (워드마크 대신) -->
   <div class="ps-break">
@@ -209,7 +296,7 @@
   <!-- NEW IN -->
   <div class="rule">
     <span class="rule-label">new in</span>
-    <span style="font-size:10px;color:var(--muted)">— 06</span>
+    <span style="font-size:10px;color:var(--muted)">— 10</span>
   </div>
 
   <section class="shop">
@@ -223,6 +310,14 @@
     </div>
     <div class="prod">
       <div class="prod-num">02.</div>
+      <div class="prod-img"><img src="a-01.png" alt=""></div>
+      <div class="prod-meta">
+        <div class="prod-name">Lacquer Bench</div>
+        <div class="prod-price">₩ 480,000</div>
+      </div>
+    </div>
+    <div class="prod">
+      <div class="prod-num">03.</div>
       <div class="prod-img"><img src="0_3.png" alt=""></div>
       <div class="prod-meta">
         <div class="prod-name">Low Bowl</div>
@@ -230,7 +325,23 @@
       </div>
     </div>
     <div class="prod">
-      <div class="prod-num">03.</div>
+      <div class="prod-num">04.</div>
+      <div class="prod-img"><img src="a-02.png" alt=""></div>
+      <div class="prod-meta">
+        <div class="prod-name">Oak Sideboard</div>
+        <div class="prod-price">₩ 620,000</div>
+      </div>
+    </div>
+    <div class="prod">
+      <div class="prod-num">05.</div>
+      <div class="prod-img"><img src="a-04.png" alt=""></div>
+      <div class="prod-meta">
+        <div class="prod-name">Lacquer Tray</div>
+        <div class="prod-price">₩ 128,000</div>
+      </div>
+    </div>
+    <div class="prod">
+      <div class="prod-num">06.</div>
       <div class="prod-img"><img src="0_0-1.png" alt=""></div>
       <div class="prod-meta">
         <div class="prod-name">Stone Stool</div>
@@ -238,7 +349,7 @@
       </div>
     </div>
     <div class="prod">
-      <div class="prod-num">04.</div>
+      <div class="prod-num">07.</div>
       <div class="prod-img"><img src="0_3-1.png" alt=""></div>
       <div class="prod-meta">
         <div class="prod-name">Incense Set</div>
@@ -246,7 +357,7 @@
       </div>
     </div>
     <div class="prod">
-      <div class="prod-num">05.</div>
+      <div class="prod-num">08.</div>
       <div class="prod-img"><img src="bebasedonbrand_Korean_Joseon_white_porcelain_moon_jar_placed__9a7ae016-691a-4e86-8c8c-6b57dfefc677_3%20(1).png" alt=""></div>
       <div class="prod-meta">
         <div class="prod-name">Celadon Bowl</div>
@@ -254,11 +365,19 @@
       </div>
     </div>
     <div class="prod">
-      <div class="prod-num">06.</div>
+      <div class="prod-num">09.</div>
       <div class="prod-img zoom"><img src="e5d91b94b79db021264a94f6f0bc26c398844e97f7805718975f59f1e686b91b.png" alt=""></div>
       <div class="prod-meta">
-        <div class="prod-name">Object No.6</div>
+        <div class="prod-name">Object No.9</div>
         <div class="prod-price">₩ 210,000</div>
+      </div>
+    </div>
+    <div class="prod">
+      <div class="prod-num">10.</div>
+      <div class="prod-img"><img src="a-03.png" alt=""></div>
+      <div class="prod-meta">
+        <div class="prod-name">Slab Chair</div>
+        <div class="prod-price">₩ 340,000</div>
       </div>
     </div>
   </section>
